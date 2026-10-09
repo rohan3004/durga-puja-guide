@@ -1,0 +1,90 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ------------------------------------------------------------------ */
+/* Custom styles migrated out of the inline <style> block so the       */
+/* compiled stylesheet is fully self-contained (no runtime CDN).       */
+/* ------------------------------------------------------------------ */
+@layer base {
+  body {
+    background-color: #fffbeb;
+    background-image: url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23f59e0b" fill-opacity="0.05"%3E%3Cpath d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');
+    overflow-x: hidden;
+  }
+}
+
+@layer components {
+  .glass-card {
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(245, 158, 11, 0.3);
+    box-shadow: 0 10px 40px -10px rgba(153, 27, 27, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .glass-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 50px -10px rgba(153, 27, 27, 0.2);
+    border-color: #f59e0b;
+  }
+
+  .timeline-dot {
+    box-shadow: 0 0 0 6px #fef3c7, inset 0 2px 0 rgba(0, 0, 0, 0.1), 0 4px 10px rgba(153, 27, 27, 0.3);
+    transition: all 0.3s ease;
+  }
+
+  .group:hover .timeline-dot {
+    transform: scale(1.2) translateX(0);
+    box-shadow: 0 0 0 6px #f59e0b, inset 0 2px 0 rgba(0, 0, 0, 0.1), 0 4px 15px rgba(153, 27, 27, 0.5);
+  }
+
+  @media (min-width: 768px) {
+    .group:hover .timeline-dot {
+      transform: scale(1.2) translateX(-42%);
+    }
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+@layer utilities {
+  @keyframes float {
+    0% { transform: translateY(0px) scale(1); }
+    50% { transform: translateY(-15px) scale(1.02); }
+    100% { transform: translateY(0px) scale(1); }
+  }
+  .animate-float {
+    animation: float 5s ease-in-out infinite;
+  }
+
+  .draw-eye {
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+    animation: draw 3.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  }
+  @keyframes draw {
+    to { stroke-dashoffset: 0; }
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+  }
+  .reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .delay-100 { transition-delay: 100ms; }
+  .delay-200 { transition-delay: 200ms; }
+  .delay-300 { transition-delay: 300ms; }
+}

@@ -1,0 +1,13 @@
+{
+  "name": "durga-puja-guide",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Sharodiya Durga Puja itinerary — production static site.",
+  "scripts": {
+    "build:css": "tailwindcss -i ./src/input.css -o ./assets/style.css --minify",
+    "watch:css": "tailwindcss -i ./src/input.css -o ./assets/style.css --watch"
+  },
+  "devDependencies": {
+    "tailwindcss": "3.4.17"
+  }
+}

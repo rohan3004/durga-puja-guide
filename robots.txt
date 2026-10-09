@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://portfolio.byrohan.in/sitemap.xml
+Sitemap: https://portfolio.byrohan.in/durga-puja-guide/sitemap.xml
